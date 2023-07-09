@@ -1,0 +1,131 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+    <title>Registration Form</title> 
+
+    <style> 
+
+        .error { 
+
+            color: red; 
+
+        } 
+
+    </style> 
+
+    <script> 
+
+        function validateForm() { 
+
+            var firstName = document.forms["registrationForm"]["firstName"].value; 
+
+            var lastName = document.forms["registrationForm"]["lastName"].value; 
+
+            var email = document.forms["registrationForm"]["email"].value; 
+
+            var password = document.forms["registrationForm"]["password"].value; 
+
+             document.getElementById("firstNameError").innerHTML = ""; 
+
+            document.getElementById("lastNameError").innerHTML = ""; 
+
+            document.getElementById("emailError").innerHTML = ""; 
+
+            document.getElementById("passwordError").innerHTML = ""; 
+
+             var isValid = true; 
+
+              if (firstName === "") { 
+
+                document.getElementById("firstNameError").innerHTML = "First name is required"; 
+
+                isValid = false; 
+
+            } 
+
+              if (lastName === "") { 
+
+                document.getElementById("lastNameError").innerHTML = "Last name is required"; 
+
+                isValid = false; 
+
+            } 
+
+              if (email === "") { 
+
+                document.getElementById("emailError").innerHTML = "Email is required"; 
+
+                isValid = false; 
+
+            } else { 
+
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+
+                if (!emailPattern.test(email)) { 
+
+                    document.getElementById("emailError").innerHTML = "Invalid email format"; 
+
+                    isValid = false; 
+
+                } 
+
+            } 
+
+            if (password === "") { 
+
+                document.getElementById("passwordError").innerHTML = "Password is required"; 
+
+                isValid = false; 
+
+            } 
+
+             return isValid; 
+
+        } 
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Registration Form</h1> 
+
+    <form name="registrationForm" onsubmit="return validateForm()" method="post"> 
+
+        <label for="firstName">First Name:</label><br> 
+
+        <input type="text" id="firstName" name="firstName"><br> 
+
+        <span id="firstNameError" class="error"></span><br> 
+
+        <label for="lastName">Last Name:</label><br> 
+
+        <input type="text" id="lastName" name="lastName"><br> 
+
+        <span id="lastNameError" class="error"></span><br> 
+
+        <label for="email">Email:</label><br> 
+
+        <input type="text" id="email" name="email"><br> 
+
+        <span id="emailError" class="error"></span><br> 
+
+       <label for="password">Password:</label><br> 
+
+        <input type="password" id="password" name="password"><br> 
+
+        <span id="passwordError" class="error"></span><br> 
+
+        <input type="submit" value="Register"> 
+
+    </form> 
+
+</body> 
+
+</html> 
+
+ 

@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+    <title>Factorial Calculator</title> 
+
+    <style> 
+
+        .error { 
+
+            color: red; 
+
+        } 
+
+    </style> 
+
+    <script> 
+
+        function validateForm() { 
+
+            var number = document.forms["factorialForm"]["number"].value; 
+
+             document.getElementById("numberError").innerHTML = ""; 
+
+             var isValid = true; 
+
+             if (number === "") { 
+
+                document.getElementById("numberError").innerHTML = "Number is required"; 
+
+                isValid = false; 
+
+            } else if (isNaN(number) || parseInt(number) <= 0) { 
+
+                document.getElementById("numberError").innerHTML = "Invalid number"; 
+
+                isValid = false; 
+
+            } 
+
+            return isValid; 
+            
+            var i, no, fact; 
+            fact=1; 
+            no=Number(document.getElementById("number").value); 
+            for(i=1; i<=no; i++)   
+            { 
+             fact= fact*i; 
+            }   
+            document.getElementById("answer").value= fact;
+
+            } 
+        
+
+    </script> 
+
+</head> 
+
+<body> 
+
+    <h1>Factorial Calculator</h1> 
+
+    <form name="factorialForm" onsubmit="return validateForm()" method="post"> 
+
+        <label for="number">Number:</label><br> 
+
+        <input type="text" id="number" name="number"><br> 
+
+        <span id="numberError" class="error"></span><br> 
+
+        <input type="submit" value="Calculate Factorial"> 
+        <br>
+        <input type="text" id="answer" >
+
+    </form> 
+
+</body> 
+
+</html> 
